@@ -11,7 +11,7 @@ public class WebApp implements TrafficObserver {
 	}
 
 	public void update() {
-		System.out.println(model.getArea());
+		System.out.println(model.getArea() + "\n");
 		for (Road road : model.getState()) {
 			
 		}

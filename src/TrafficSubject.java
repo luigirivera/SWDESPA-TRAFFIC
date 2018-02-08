@@ -19,6 +19,12 @@ public class TrafficSubject {
 	public void setArea(String area) {
 		this.area = area;
 	}
+	
+	public void updateAll() {
+		for (TrafficObserver to : views) {
+			to.update();
+		}
+	}
 
 	public void attach(TrafficObserver to) {
 		if (!views.contains(to))
@@ -31,8 +37,6 @@ public class TrafficSubject {
 
 	public void setState(List<Road> roads) {
 		this.roads = roads;
-		for (TrafficObserver to : views) {
-			to.update();
-		}
+		this.updateAll();
 	}
 }

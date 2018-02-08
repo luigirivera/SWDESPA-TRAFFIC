@@ -4,35 +4,8 @@ public class Road {
 	private Direction northbound;
 	private Direction southbound;
 
-	class Direction {
-		private TrafficCondition condition;
-		private TrafficAdvisory advisory;
-		
-		public Direction() {
-			this.condition = TrafficCondition.LIGHT;
-			this.advisory = TrafficAdvisory.NONE;
-		}
-
-		public TrafficCondition getCondition() {
-			return condition;
-		}
-
-		public void setCondition(TrafficCondition condition) {
-			this.condition = condition;
-		}
-
-		public TrafficAdvisory getAdvisory() {
-			return advisory;
-		}
-
-		public void setAdvisory(TrafficAdvisory advisory) {
-			this.advisory = advisory;
-		}
-
-	}
-	
-	public Road() {
-		name = "noname";
+	public Road(String name) {
+		this.name = name;
 		northbound = new Direction();
 		southbound = new Direction();
 	}
@@ -52,4 +25,31 @@ public class Road {
 	public Direction getSouthbound() {
 		return southbound;
 	}
+}
+
+class Direction {
+	private TrafficCondition condition;
+	private TrafficAdvisory advisory;
+
+	public Direction() {
+		this.condition = TrafficCondition.LIGHT;
+		this.advisory = TrafficAdvisory.NONE;
+	}
+
+	public TrafficCondition getCondition() {
+		return condition;
+	}
+
+	public void setCondition(TrafficCondition condition) {
+		this.condition = condition;
+	}
+
+	public TrafficAdvisory getAdvisory() {
+		return advisory;
+	}
+
+	public void setAdvisory(TrafficAdvisory advisory) {
+		this.advisory = advisory;
+	}
+
 }

@@ -25,13 +25,4 @@ public class WebApp extends TrafficObserver {
 			System.out.println(String.format("%-25s%-25s%-25s", road.getName(), nb, sb));
 		}
 	}
-	
-	public static void main(String[] args) {
-		TrafficSubject ts = new TrafficSubject("Metro Cebu");
-		ts.setState(Arrays.asList(new Road("Osmena Boulevard"), new Road("Colon")));
-		ts.getState().get(0).getNorthbound().setAdvisory(TrafficAdvisory.BLOCKING);
-		WebApp wa = new WebApp();
-		ts.attach(wa);
-		wa.update();
-	}
 }

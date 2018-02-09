@@ -94,7 +94,6 @@ public class AdminMenu {
 	
 	private void updateDirection(Direction d) {
 		int input;
-		Road updatedRoad;
 		System.out.println("\nWhat information?\n" + "[1] Traffic Condition\n" + 
 							"[2] Traffic Advisory");
 		input = Integer.valueOf(sc.next());

@@ -1,8 +1,7 @@
 public class MobileApp extends TrafficObserver {
 	private static int count = 1;
 	
-	public MobileApp(TrafficSubject model) {
-		super(model);
+	public MobileApp() {
 		this.number = count;
 		count++;
 	}

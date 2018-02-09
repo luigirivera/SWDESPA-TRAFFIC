@@ -3,8 +3,7 @@ import java.util.Arrays;
 public class WebApp extends TrafficObserver {
 	private static int count = 1;
 
-	public WebApp(TrafficSubject model) {
-		super(model);
+	public WebApp() {
 		this.number = count;
 		count++;
 	}
@@ -31,7 +30,8 @@ public class WebApp extends TrafficObserver {
 		TrafficSubject ts = new TrafficSubject("Metro Cebu");
 		ts.setState(Arrays.asList(new Road("Osmena Boulevard"), new Road("Colon")));
 		ts.getState().get(0).getNorthbound().setAdvisory(TrafficAdvisory.BLOCKING);
-		WebApp wa = new WebApp(ts);
+		WebApp wa = new WebApp();
+		ts.attach(wa);
 		wa.update();
 	}
 }

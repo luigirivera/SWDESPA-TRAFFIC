@@ -2,10 +2,6 @@
 public abstract class TrafficObserver {
 	protected TrafficSubject model;
 	protected int number;
-	
-	public TrafficObserver(TrafficSubject model) {
-		this.model = model;
-	}
 
 	public TrafficSubject getModel() {
 		return model;

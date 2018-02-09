@@ -27,8 +27,10 @@ public class TrafficSubject {
 	}
 
 	public void attach(TrafficObserver to) {
-		if (!views.contains(to))
+		if (!views.contains(to)) {
 			views.add(to);
+			to.setModel(this);
+		}
 	}
 
 	public List<Road> getState() {

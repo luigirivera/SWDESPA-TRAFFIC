@@ -5,14 +5,28 @@ public class MobileApp extends TrafficObserver {
 		this.number = count;
 		count++;
 	}
+	
+	private String directionToStringNB(Direction d) {
+		if(d.getAdvisory().equals(TrafficAdvisory.NONE))
+			return d.getCondition().toString() + " (NB)";
+		else
+			return String.format("%s (NB) - !%s!", d.getCondition().toString(), d.getAdvisory().toString());
+	}
+	
+	private String directionToStringSB(Direction d) {
+		if(d.getAdvisory().equals(TrafficAdvisory.NONE))
+			return "(SB) " + d.getCondition().toString();
+		else
+			return String.format("!%s! - (SB) %s ", d.getAdvisory().toString(), d.getCondition().toString());
+	}
 
 	public void update() {
-		System.out.println(model.getArea() + "\n");
+		System.out.println("Mobile App " + this.number);
+		System.out.println(model.getArea());
 		for (Road road : model.getState()) {
-			System.out.println(road.getNorthbound().getCondition().toString() + " (NB) - " 
-							 + road.getNorthbound().getAdvisory().toString() + " - "+ road.getName() + " - "
-							 + road.getSouthbound().getAdvisory().toString() + " - (SB) "
-							 + road.getSouthbound().getCondition().toString());
+			String nb = directionToStringNB(road.getNorthbound());
+			String sb = directionToStringSB(road.getSouthbound());
+			System.out.println(nb + " - " + road.getName() + " - " + sb);
 		}
 	}
 }

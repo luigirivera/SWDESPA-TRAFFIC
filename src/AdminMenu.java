@@ -37,7 +37,7 @@ public class AdminMenu {
 		model.setState(roads);
 	}
 	
-	private Road chooseRoad(){
+	private Road chooseRoad() throws ArrayIndexOutOfBoundsException{
 		int roadNumber=1;
 		int choice;
 		
@@ -48,8 +48,11 @@ public class AdminMenu {
 		}
 		choice = Integer.valueOf(sc.next());
 
-		//we need exception handling here for out of bounds - Luigi  <---------------------------------
-		return model.getState().get((choice-1));
+		try {
+			return model.getState().get((choice-1));
+		} catch (ArrayIndexOutOfBoundsException e) {
+			throw new ArrayIndexOutOfBoundsException("Road not found!");
+		}
 	}
 	
 	private void updateCondition(Direction d){
@@ -131,9 +134,13 @@ public class AdminMenu {
 				break;
 			case 3:
 				System.out.println("\nWhat NB Road?");
-				newRoad = chooseRoad();
-				this.updateDirection(newRoad.getNorthbound());
-				updateRoad(newRoad);
+				try {
+					newRoad = chooseRoad();
+					this.updateDirection(newRoad.getNorthbound());
+					updateRoad(newRoad);
+				} catch (ArrayIndexOutOfBoundsException e) {
+					System.out.println(e.getMessage());
+				}
 				break;
 			case 4:
 				System.out.println("\nWhat SB Road?");

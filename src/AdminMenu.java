@@ -150,9 +150,13 @@ public class AdminMenu {
 				break;
 			case 4:
 				System.out.println("\nWhat SB Road?");
-				newRoad = chooseRoad();
-				this.updateDirection(newRoad.getSouthbound());
-				updateRoad(newRoad);
+				try {
+					newRoad = chooseRoad();
+					this.updateDirection(newRoad.getSouthbound());
+					updateRoad(newRoad);
+				} catch (ArrayIndexOutOfBoundsException e) {
+					System.out.println(e.getMessage());
+				}
 				break;
 			case 5: 
 				break;

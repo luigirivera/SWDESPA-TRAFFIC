@@ -29,8 +29,10 @@ public class AdminMenu {
 		List<Road> roads = model.getState();
 		
 		for(int i=0; i<roads.size(); i++)
-			if(roads.get(i).getName().equals(r.getName()))
+			if(roads.get(i).getName().equals(r.getName())) {
 				roads.set(i,r);
+				break;
+			}
 			
 		model.setState(roads);
 	}

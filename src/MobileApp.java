@@ -1,3 +1,9 @@
+/*
+ * LOPEZ, LUIS ENRICO D.
+ * RIVERA, LOUIE IV Y.
+ * SWDESPA S17
+ */
+
 public class MobileApp extends TrafficObserver {
 	private static int count = 1;
 	

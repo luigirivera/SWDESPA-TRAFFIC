@@ -1,3 +1,8 @@
+/*
+ * LOPEZ, LUIS ENRICO D.
+ * RIVERA, LOUIE IV Y.
+ * SWDESPA S17
+ */
 
 public abstract class TrafficObserver {
 	protected TrafficSubject model;
